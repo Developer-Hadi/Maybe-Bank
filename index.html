@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Bank</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div id="login-Area" class="login-form">
+                    <h1 class="text-center">Wel-come to Maybe-Bank</h1>
+                    <div class="login-area">
+                        <h4 class="text-center text-primary">Fill the area</h4>
+                        <input class="form-control my-3" type="text">
+                        <input class="form-control my-3" type="password">
+                        <button id="login" class="btn btn-success my-3">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loginBtn = document.getElementById("login");
+        loginBtn.addEventListener("click", function(){
+            const loginArea =document.getElementById("login-Area");
+            loginArea.style.display ="none";
+        })
+    </script>
+</body>
+</html>
