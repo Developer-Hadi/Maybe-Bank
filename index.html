@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Bank</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
     <div class="container">
         <div class="row">
@@ -25,13 +28,78 @@
             </div>
         </div>
     </div>
+    <!-- TRANSACTION AREA START -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div id="transaction-area">
+                    <h1 class="text-center py-5">Transaction Area</h1>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="deposit status">
+                                <h5>Deposit</h5>
+                                <h2>$ <span id="current-deposit">00</span></h2>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="withdraw status">
+                                <h5>Withdraw</h5>
+                                <h2>$ 00</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="balance status">
+                                <h5>Balance</h5>
+                                <h2>$ 125000</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="login-area">
+                    <h4>Deposit</h4>
+                    <input id="addAmount" class="form-control my-3" type="text" placeholder="& Input your deposit ammount">
+                    <button id="addDeposit" class="btn btn-success">Deposit</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="login-area">
+                    <h4>Withdraw</h4>
+                    <input class="form-control my-3" type="text" placeholder="& Input your withdraw ammount">
+                    <button class="btn btn-success">Withdraw</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- TRANSACTION AREA END -->
+    
 
     <script>
+        //login button event handler js;
         const loginBtn = document.getElementById("login");
-        loginBtn.addEventListener("click", function(){
-            const loginArea =document.getElementById("login-Area");
-            loginArea.style.display ="none";
+        loginBtn.addEventListener("click", function () {
+            const loginArea = document.getElementById("login-Area");
+            loginArea.style.display = "none";
+            const transactionArea = document.getElementById("transaction-area");
+            transactionArea.style.display = "block";
+        })
+        //deposit button event handler js;
+        const depositBtn = document.getElementById("addDeposit");
+        depositBtn.addEventListener("click", function(){
+            const amountNumber = document.getElementById("addAmount").value;
+            const depositNumber = parseFloat(amountNumber);
+
+            const currentDeposit = document.getElementById("current-deposit").innerText;
+            const currentDepositNumber = parseFloat(currentDeposit);
+            const totalDeposit = depositNumber + currentDepositNumber;
+            document.getElementById("current-deposit").innerText = totalDeposit;
+            document.getElementById("addAmount").value ="";
         })
     </script>
 </body>
+
 </html>
